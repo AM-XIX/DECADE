@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex Words</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="medias/favicon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Bibliothèque d'icônes -->
+    <script src="https://kit.fontawesome.com/e6c960569c.js" crossorigin="anonymous"></script>
+</head>
+
+<!-- Le site est en one page, mais est divisé en 3 couches :
+- L'intro
+- La page principale
+- L'onglet Projet
+
+Quand on arrive sur le site, on atterrit sur l'introduction, mais c'est en réalité la page principale qui est AU-DESSUS de tout : elle est simplement mise en clip-path 0% pour l'instant. -->
+
+<body>
+    <!-- Introduction -->
+    <div class="introBlock">
+        <div class="word">
+            <div class="prefix">#</div>
+
+            <!-- Je liste chaque segment de lettres qu'on va apercevoir dans l'animation de déroulement -->
+            <div class="suffix">
+                <ul class="letterD">
+                    <li>2</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D</li>
+                </ul>
+            </div>
+
+            <div class="suffix">
+                <ul class="letterE">
+                    <li>0</li>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D</li>
+                    <li>E</li>
+                </ul>
+            </div>
+
+            <div class="suffix">
+                <ul class="letterC">
+                    <li>2</li>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                </ul>
+            </div>
+
+            <div class="suffix">
+                <ul class="letterA">
+                    <li>1</li>
+                    <li>A</li>
+                </ul>
+            </div>
+
+            <div class="suffix">
+                <ul class="letterD2">
+                    <li>.</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D</li>
+                </ul>
+            </div>
+
+            <div class="suffix">
+                <ul class="letterE2">
+                    <li>.</li>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D</li>
+                    <li>E</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Mon bouton action déclenche de nombreuses animations en JS et en CSS -->
+        <h2 id="action" class="switch" onclick="action()">Rewind</h2>
+    </div>
+
+    <!-- Page principale -->
+    <!-- Elle est par défaut en clip path ellipse 0% -->
+    <div class="whole">
+        <div class="page">
+            <div class="title">
+                <h1>#DECADE</h1>
+                <h2>2010</h2>
+            </div>
+
+            <!-- Ligne chronologique verticale -->
+            <div class="chrono">
+                <div class="circle"></div>
+                <div class="line"></div>
+            </div>
+
+            <!-- Série de toutes les cartes en flex -->
+            <section class="allCards">
+
+                <!-- Pour chaque carte :
+                - L'icône en <i>
+                - Le titre + (date) en em
+                - Le contenu p caché par défaut
+                - Le label "see more" pour appeler au défilement
+                - La flèche qui tourne sur son axe au défilement -->
+
+                <div class="card">
+                    <h3><i class="fab fa-instagram"></i> Instant birth <em>(2010)</em></h3>
+                    <p class="insta">Created by Kevin Systrom, Instagram arrived in our smartphones in October 2010. It
+                        had an instant success.</p>
+                    <label class="instaL">See more</label>
+                    <div id="insta" class="arrow"></div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-dragon"></i> Winter came <em>(2011)</em></h3>
+                    <p class="got">In June 2011 was aired the first episode of what would later be considered the
+                        greatest TV of all times : Game of Thrones. </p>
+                    <label class="gotL">See more</label>
+                    <div id="got" class="arrow"></div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="far fa-snowflake"></i> Let it go! <em>(2013)</em></h3>
+                    <p class="frozen">That song obsessed every kid from the moment Frozen was released, in December of
+                        2013.</p>
+                    <label class="frozenL">See more</label>
+                    <div id="frozen" class="arrow"></div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-fill-drip"></i> Ice Bucket Challenge <em>(2014)</em></h3>
+                    <p class="ibc">In 2014, people had this weird habit of throwing an ice bucket on themselves in order
+                        to support a cause : this was the Ice Bucket Challenge.
+                    </p>
+                    <label class="ibcL">See more</label>
+                    <div id="ibc" class="arrow"></div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-meteor"></i> Skywalker returns <em>(2015)</em></h3>
+                    <p class="sw">After Disney kidnapped Star Wars, they blessed (or cursed) us with a whole new Star
+                        Wars series. That was in 2015.
+                    </p>
+                    <label class="swL">See more</label>
+                    <div id="sw" class="arrow"></div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fab fa-tiktok"></i> The Tiktok Matrix <em>(2017)</em></h3>
+                    <p class="tiktok">In 2017, a new social media did the unthinkable : surprise the Internet, who
+                        thought it already has seen it all.<br>
+                        Of course. Muscia.ly, now known as Tiktok.
+                    </p>
+                    <label class="tiktokL">See more</label>
+                    <div id="tiktok" class="arrow"></div>
+                </div>
+
+
+                <div class="card">
+                    <h3><i class="fas fa-trophy"></i> Grammy robbery <em>(2020)</em></h3>
+                    <p class="grammy">The culprit of this robbery is Billie Eilish. The 18 yo artist broke all the
+                        records by winning 5 grammies at once, a never-seen success in the awards history.
+                    </p>
+                    <label class="grammyL">See more</label>
+                    <div id="grammy" class="arrow"></div>
+                </div>
+
+                <!-- Bouton menant à l'onglet Projet -->
+                <h2 id="project" class="switch" onclick="scrolling()">The project <i class="fas fa-chevron-right"></i>
+                </h2>
+            </section>
+
+        </div>
+
+        <!-- Onglet Projet -->
+        <div class="page2">
+            <!-- Explication du projet -->
+            <h1>The project</h1>
+            <fieldset class="hex">
+                <legend>Hexa Word</legend>
+                <p>Did you know that hexadecimal codes can have an actual <b>meaning</b> ?<br>
+                    Well, now you know.
+                    <br><br>The scope of this project was to design a website based on an HEX code with a particular
+                    meaning.<br><br>
+                    I chose the HEX code : <span>#DECADE</span>.</p>
+            </fieldset>
+
+            <!-- Présentation de moi -->
+            <fieldset class="dev">
+                <legend>The dev</legend>
+                <p>Hi ! I'm <b>Anna Maria Lannaud</b>, a 19 yo developper who loves tea.<br><br>
+                    If you liked my work, feel free to join me thanks to the links below.
+                    <br><br>
+
+                    <!-- RS -->
+                    <a href="mailto:am.lannaud@gmail.com" target="_blank"><i class="fas fa-at"></i></a>
+                    <a href="https://www.linkedin.com/in/anna-maria-lannaud-a391671ba/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://www.behance.net/anna-malannaud" target="_blank"><i
+                            class="fab fa-behance-square"></i></a>
+
+                </p>
+            </fieldset>
+
+            <!-- Retour à la page principale -->
+            <h2 id="back" onclick="endEclipse()" class="switch"><i class="fas fa-chevron-left"></i> Back to rewind</h2>
+        </div>
+    </div>
+</body>
+
+</html>
